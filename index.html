@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Curriculum Vitae Sabrina Sifa Yunia Arifin, siswi SMA Gunung Madu">
+  <title>CV - Sabrina Sifa Yunia Arifin</title>
+  <style>
+    :root {
+      --navy: #1f3350;
+      --navy-dark: #162640;
+      --gray-100: #f3f4f6;
+      --gray-300: #d1d5db;
+      --gray-600: #4b5563;
+      --text: #1f2937;
+      --white: #ffffff;
+      --font-heading: Georgia, "Times New Roman", serif;
+      --font-body: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 2rem 1rem;
+      background: var(--gray-100);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    .cv {
+      max-width: 960px;
+      margin: 0 auto;
+      background: var(--white);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      grid-template-areas:
+        "header header"
+        "side   main";
+    }
+
+    /* Header */
+    .cv-header {
+      grid-area: header;
+      background: var(--navy);
+      color: var(--white);
+      padding: 2rem 2.5rem;
+    }
+    .cv-header h1 {
+      margin: 0;
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      line-height: 1.25;
+    }
+    .cv-header p {
+      margin: 0.4rem 0 0;
+      color: #d6dfec;
+      font-size: 1.05rem;
+    }
+
+    /* Sidebar */
+    .cv-side {
+      grid-area: side;
+      background: var(--gray-100);
+      padding: 2rem 1.75rem;
+      border-right: 1px solid var(--gray-300);
+    }
+    .photo {
+      width: 170px;
+      height: 170px;
+      margin: 0 auto 1.75rem;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid var(--navy);
+      background: var(--gray-300);
+    }
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Main */
+    .cv-main {
+      grid-area: main;
+      padding: 2rem 2.5rem;
+    }
+
+    h2 {
+      margin: 0 0 0.75rem;
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      color: var(--navy);
+      padding-bottom: 0.35rem;
+      border-bottom: 2px solid var(--navy);
+    }
+    h3 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    section + section { margin-top: 1.75rem; }
+    .cv-side section + section { margin-top: 1.5rem; }
+    .cv-side h2 { font-size: 1.05rem; }
+
+    address { font-style: normal; }
+    .contact-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 0.92rem;
+    }
+    .contact-list li { margin-bottom: 0.75rem; overflow-wrap: anywhere; }
+    .contact-list strong {
+      display: block;
+      color: var(--navy);
+      font-size: 0.85rem;
+    }
+    .contact-list a { color: var(--text); text-decoration: none; }
+    .contact-list a:hover { text-decoration: underline; }
+
+    ul.plain { margin: 0; padding-left: 1.2rem; }
+    ul.plain li { margin-bottom: 0.3rem; }
+
+    .entry { margin-bottom: 1.1rem; }
+    .entry:last-child { margin-bottom: 0; }
+    .entry-meta {
+      margin: 0;
+      color: var(--gray-600);
+      font-size: 0.92rem;
+    }
+    .entry p { margin: 0.25rem 0 0; }
+
+    .tags {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .tags li {
+      background: var(--white);
+      border: 1px solid var(--navy);
+      color: var(--navy);
+      padding: 0.2rem 0.75rem;
+      border-radius: 3px;
+      font-size: 0.9rem;
+    }
+
+    .cv-footer {
+      max-width: 960px;
+      margin: 1rem auto 0;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--gray-600);
+    }
+
+    /* Tablet & HP */
+    @media (max-width: 760px) {
+      body { padding: 1rem 0.5rem; }
+      .cv {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "header"
+          "side"
+          "main";
+      }
+      .cv-header { padding: 1.5rem; text-align: center; }
+      .cv-header h1 { font-size: 1.55rem; }
+      .cv-side { border-right: 0; border-bottom: 1px solid var(--gray-300); padding: 1.5rem; }
+      .cv-main { padding: 1.5rem; }
+    }
+
+    /* Cetak / simpan PDF */
+    @media print {
+      body { background: var(--white); padding: 0; font-size: 11pt; }
+      .cv-footer { display: none; }
+      .cv { box-shadow: none; max-width: none; }
+      .cv-header, .cv-side { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      section { break-inside: avoid; }
+      @page { size: A4; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cv">
+
+    <header class="cv-header">
+      <h1>Sabrina Sifa Yunia Arifin</h1>
+      <p>Siswi SMA Gunung Madu, Kelas XII B</p>
+    </header>
+
+    <aside class="cv-side" aria-label="Foto dan informasi kontak">
+      <figure class="photo">
+        <!-- Ganti "foto.jpg" dengan nama file fotomu (satu folder dengan file ini) -->
+        <img src="image.png/image.png" alt="Foto profil Sabrina Sifa Yunia Arifin">
+      </figure>
+
+      <section aria-labelledby="judul-kontak">
+        <h2 id="judul-kontak">Kontak</h2>
+        <address>
+          <ul class="contact-list">
+            <li>
+              <strong>Email</strong>
+              <a href="mailto:siepciepah@gmail.com">siepciepah@gmail.com</a>
+            </li>
+            <li>
+              <strong>Telepon / WhatsApp</strong>
+              <a href="tel:+6285290945706">0852 9094 5706</a>
+            </li>
+            <li>
+              <strong>Instagram</strong>
+              <a href="https://www.instagram.com/sb.s1fa" target="_blank" rel="noopener">@sb.s1fa</a>
+            </li>
+            <li>
+              <strong>Alamat</strong>
+              Divisi 2, PT Gunung Madu Plantation, Lampung Tengah, Lampung, Indonesia
+            </li>
+          </ul>
+        </address>
+      </section>
+
+      <section aria-labelledby="judul-keahlian">
+        <h2 id="judul-keahlian">Keahlian</h2>
+        <ul class="tags">
+          <li>Debat</li>
+          <li>Kerja sama tim</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="judul-karakter">
+        <h2 id="judul-karakter">Karakter</h2>
+        <ul class="plain">
+          <li>Cerdas dan analitis</li>
+          <li>Komunikator yang baik</li>
+          <li>Dinamis dan kreatif</li>
+          <li>Mampu multitasking</li>
+        </ul>
+      </section>
+    </aside>
+
+    <main class="cv-main">
+
+      <section aria-labelledby="judul-profil">
+        <h2 id="judul-profil">Profil</h2>
+        <p>
+          Siswi SMA yang cerdas, analitis, dan komunikatif, dengan rasa ingin tahu yang tinggi
+          terhadap hal-hal baru. Mudah beradaptasi dengan lingkungan baru, mampu mengerjakan
+          beberapa hal sekaligus, dan terbiasa bekerja dalam tim melalui kegiatan organisasi
+          dan ekstrakurikuler.
+        </p>
+      </section>
+
+      <section aria-labelledby="judul-tujuan">
+        <h2 id="judul-tujuan">Cita-cita dan Tujuan</h2>
+        <p>
+          Bercita-cita menjadi staf HR (Human Resources). Setelah lulus SMA, saya berencana
+          melanjutkan kuliah di Universitas Lampung pada program studi Ilmu Administrasi Bisnis.
+        </p>
+      </section>
+
+      <section aria-labelledby="judul-pendidikan">
+        <h2 id="judul-pendidikan">Pendidikan</h2>
+        <article class="entry">
+          <h3>SMA Gunung Madu</h3>
+          <p class="entry-meta">Kelas XII B &bull; <time datetime="2024">2024</time> &ndash; <time datetime="2027">2027</time></p>
+          <p>Mata pelajaran pilihan: Ekonomi, Informatika, dan Sosiologi.</p>
+        </article>
+      </section>
+
+      <section aria-labelledby="judul-pengalaman">
+        <h2 id="judul-pengalaman">Pengalaman Organisasi dan Ekstrakurikuler</h2>
+
+        <article class="entry">
+          <h3>Organisasi Ambalan (Pramuka)</h3>
+          <p class="entry-meta">Jabatan: Pemangku Adat</p>
+        </article>
+
+        <article class="entry">
+          <h3>Ekstrakurikuler Tari</h3>
+          <p class="entry-meta">Anggota</p>
+        </article>
+
+        <article class="entry">
+          <h3>Ekstrakurikuler Archery (Panahan)</h3>
+          <p class="entry-meta">Anggota</p>
+        </article>
+      </section>
+
+    </main>
+  </div>
+
+  <footer class="cv-footer">
+    <p>&copy; 2026 Sabrina Sifa Yunia Arifin</p>
+  </footer>
+
+</body>
+</html>
